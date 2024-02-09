@@ -1,0 +1,231 @@
+﻿<Page
+    x:Class="DeviceOne.Pages.DicePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Width="1285" Height="671">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Assets/Other/Game_Background.png"/>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="2.1*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.7*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="0.7*"/>
+        </Grid.ColumnDefinitions>
+        <!-- Page Title -->
+        <!-- =========================================== -->
+        <!-- =========================================== -->
+        <Grid Style="{StaticResource Title.Grid}">
+            <Grid.Background>
+                <ImageBrush ImageSource="/Assets/Other/Page_Title.png"/>
+            </Grid.Background>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.7*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="0.1*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Text="DICE" Style="{StaticResource Title.Content}"/>
+        </Grid>
+
+
+
+        <!-- Dice Sign -->
+        <!-- =========================================== -->
+        <!-- =========================================== -->
+        <Grid Grid.Row="1" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.25*"/>
+                <RowDefinition Height="0.5*"/>
+                <RowDefinition Height="0.3*"/>
+                <RowDefinition Height="0.25*"/>
+                <RowDefinition Height="0.5*"/>
+                <RowDefinition Height="0.3*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.05*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="0.05*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Pole 1 -->
+            <!-- =========================================== -->
+            <Image Source="/Assets/Dice/Dice_Background_Pole_1.png" Style="{StaticResource Dice.Pole}"/>
+
+            
+
+            <!-- Player 1 -->
+            <!-- =========================================== -->
+            <!-- Title -->
+            <Grid Style="{StaticResource Dice.Player.Title.Grid}" Grid.Column="1">
+                <Grid.Background>
+                    <ImageBrush ImageSource="/Assets/dICE/Dice_Player_Title.png"/>
+                </Grid.Background>
+                <TextBox x:Name="Player1" PlaceholderText="ENTER NAME..." Style="{StaticResource Dice.Player.Title}"/>
+            </Grid>
+
+            <!-- Button -->
+            <Button x:Name="player1Roll" Content="ROLL" Style="{StaticResource Dice.Button}" Grid.Row="1" Click="Player1Roll_Click"> <Button.Background> <ImageBrush ImageSource="/Assets/Other/Page_Title.png"/> </Button.Background> </Button>
+
+            <!-- Row -->
+            <Grid Grid.Row="1" Grid.Column="1">
+                <Grid.Background>
+                    <ImageBrush ImageSource="/Assets/dICE/Dice_Background.png"/>
+                </Grid.Background>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.005*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="0.005*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.2*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="0.2*"/>
+                </Grid.RowDefinitions>
+                <StackPanel Style="{StaticResource Dice.Row}">
+                    <Image x:Name="imageDice1" Source="/Assets/Dice/Dice_3.png" Style="{StaticResource Dice.Image}" Margin="0 10 0 10"/>
+                    <Image x:Name="imageDice2" Source="/Assets/Dice/Dice_2.png" Style="{StaticResource Dice.Image}"/>
+                    <Image x:Name="imageDice3" Source="/Assets/Dice/Dice_4.png" Style="{StaticResource Dice.Image}"/>
+                    <Image x:Name="imageDice4" Source="/Assets/Dice/Dice_5.png" Style="{StaticResource Dice.Image}"/>
+                    <Image x:Name="imageDice5" Source="/Assets/Dice/Dice_3.png" Style="{StaticResource Dice.Image}"/>
+                </StackPanel>
+            </Grid>
+
+            
+
+            <!-- Player 2 -->
+            <!-- =========================================== -->
+            <!-- Title -->
+            <Grid Style="{StaticResource Dice.Player.Title.Grid}" Grid.Row="3" Grid.Column="1">
+                <Grid.Background>
+                    <ImageBrush ImageSource="/Assets/dICE/Dice_Player_Title.png"/>
+                </Grid.Background>
+                <TextBox x:Name="Player2" PlaceholderText="ENTER NAME..." Style="{StaticResource Dice.Player.Title}"/>
+            </Grid>
+
+            <!-- Button -->
+            <Button x:Name="player2Roll" Content="ROLL" Style="{StaticResource Dice.Button}" Grid.Row="4" Click="Player2Roll_Click"> <Button.Background> <ImageBrush ImageSource="/Assets/Other/Page_Title.png"/> </Button.Background> </Button>
+
+            <!-- Row -->
+            <Grid Grid.Row="4" Grid.Column="1">
+                <Grid.Background>
+                    <ImageBrush ImageSource="/Assets/dICE/Dice_Background.png"/>
+                </Grid.Background>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.005*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="0.005*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.2*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="0.2*"/>
+                </Grid.RowDefinitions>
+                <StackPanel Style="{StaticResource Dice.Row}">
+                    <Image x:Name="imageDice6" Source="/Assets/Dice/Dice_6.png" Style="{StaticResource Dice.Image}" Margin="0 10 0 10"/>
+                    <Image x:Name="imageDice7" Source="/Assets/Dice/Dice_3.png" Style="{StaticResource Dice.Image}"/>
+                    <Image x:Name="imageDice8" Source="/Assets/Dice/Dice_1.png" Style="{StaticResource Dice.Image}"/>
+                    <Image x:Name="imageDice9" Source="/Assets/Dice/Dice_4.png" Style="{StaticResource Dice.Image}"/>
+                    <Image x:Name="imageDice10" Source="/Assets/Dice/Dice_2.png" Style="{StaticResource Dice.Image}"/>
+                </StackPanel>
+            </Grid>
+
+            
+
+            <!-- Pole 2 -->
+            <!-- =========================================== -->
+            <Image Source="/Assets/Dice/Dice_Background_Pole_2.png" Style="{StaticResource Dice.Pole}" Grid.Column="2"/>
+
+
+
+            <!-- Result Poster -->
+            <!-- =========================================== -->
+            <Grid Style="{StaticResource Dice.Result.Grid}" x:Name="gResult">
+                <Grid.Background>
+                    <ImageBrush ImageSource="/Assets/Dice/Result_Poster.png" Stretch="Uniform"/>
+                </Grid.Background>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.46*"/>
+                    <RowDefinition Height="0.92*"/>
+                    <RowDefinition Height="4*"/>
+                    <RowDefinition Height="0.9*"/>
+                    <RowDefinition Height="0.44*"/>
+                </Grid.RowDefinitions>
+                
+                <!-- Header Text -->
+                <TextBlock x:Name="tbResultHeader" Style="{StaticResource Dice.Result.Header}"/>
+                
+                <!-- Content Text -->
+                <TextBlock x:Name="tbResultContent" Style="{StaticResource Dice.Result.Content}"/>
+            </Grid>
+        </Grid>
+
+
+        
+        <!-- Game Rules -->
+        <!-- =========================================== -->
+        <!-- =========================================== -->
+        <!-- Open Button -->
+        <!-- =========================================== -->
+        <Button x:Name="btnGRulesOpen" Content="GAME RULES" Style="{StaticResource Game.Rules.Open.Button}" Click="btnGameRules_Click"> <Button.Background> <ImageBrush ImageSource="/Assets/Other/Button.png"/> </Button.Background> </Button>
+        
+        
+        <!-- Poster -->
+        <!-- =========================================== -->
+        <Grid x:Name="gGameRules" Style="{StaticResource Game.Rules.Poster.Grid}">
+            <Grid Margin="20">
+                <Grid.Background>
+                    <ImageBrush ImageSource="/Assets/Game_Rules/Poster.png" Stretch="Uniform"/>
+                </Grid.Background>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="45"/>
+                    <RowDefinition Height="122"/>
+                    <RowDefinition Height="9"/>
+                    <RowDefinition Height="295"/>
+                    <RowDefinition Height="6"/>
+                    <RowDefinition Height="111"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.9*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="0.9*"/>
+                </Grid.ColumnDefinitions>
+
+
+                <!-- Header -->
+                <TextBlock Text="GAME RULES" Style="{StaticResource Game.Rules.Header}"/>
+
+
+                <!-- Content -->
+                <StackPanel Style="{StaticResource Game.Rules.Content.Grid}">
+                    <TextBlock Text="5 OF A KIND (6S HIGH)" Style="{StaticResource Game.Rules.Content.TextBlock}"/>
+                    <TextBlock Text="4 OF A KIND (6S HIGH)" Style="{StaticResource Game.Rules.Content.TextBlock}"/>
+                    <TextBlock Text="FULL HOUSE (6S and 5S HIGH)" Style="{StaticResource Game.Rules.Content.TextBlock}"/>
+                    <TextBlock Text="HIGH STRAIGHT (2 - 6)" Style="{StaticResource Game.Rules.Content.TextBlock}"/>
+                    <TextBlock Text="LOW STRAIGHT (1 - 6)" Style="{StaticResource Game.Rules.Content.TextBlock}"/>
+                    <TextBlock Text="3 OF A KIND (6S HIGH)" Style="{StaticResource Game.Rules.Content.TextBlock}"/>
+                    <TextBlock Text="2 PAIRS (6S and 5S HIGH)" Style="{StaticResource Game.Rules.Content.TextBlock}"/>
+                    <TextBlock Text="2 OF A KIND (6S HIGH)" Style="{StaticResource Game.Rules.Content.TextBlock}"/>
+                    <TextBlock Text="HIGHEST NUMBER" Style="{StaticResource Game.Rules.Content.TextBlock}"/>
+                </StackPanel>
+
+
+                <!-- Close Button -->
+                <Button x:Name="btnGRulesExit" Content="BACK" Style="{StaticResource Game.Rules.Close.Button}" Click="btnGameRules_Click"/>
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>

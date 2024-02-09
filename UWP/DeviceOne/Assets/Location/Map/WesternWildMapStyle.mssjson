@@ -1,0 +1,23 @@
+﻿{
+  "version": "1.*",
+  "settings": {
+  },
+  "elements": {
+    "mapElement": {
+      "fillColor": "#21964E01",
+      "shadowVisible": false,
+      "visible": false
+    },
+    "baseMapElement": {
+      "overwriteColor": false,
+      "visible": true
+    },
+    "building": {
+      "visible": false
+    },
+    "userPoint": {
+      "labelVisible": true,
+      "visible": true
+    }
+  }
+}

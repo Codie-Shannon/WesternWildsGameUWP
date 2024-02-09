@@ -1,0 +1,95 @@
+﻿<Page
+    x:Class="DeviceOne.Pages.PredictionPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:DeviceOne.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Width="1285" Height="671" Unloaded="Page_Unloaded">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Assets/Other/Game_Background.png"/>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.4*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="0.1*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.3*"/>
+            <ColumnDefinition Width="0.7*"/>
+            <ColumnDefinition Width="0.6*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="0.3*"/>
+        </Grid.ColumnDefinitions>
+        <!-- Page Title -->
+        <!-- =========================================== -->
+        <!-- =========================================== -->
+        <Grid Style="{StaticResource Title.Grid}" Width="310">
+            <Grid.Background>
+                <ImageBrush ImageSource="/Assets/Other/Page_Title.png"/>
+            </Grid.Background>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.7*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="0.1*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Text="PREDICTION" Style="{StaticResource Title.Content}"/>
+        </Grid>
+
+
+
+        <!-- Prediction Icon -->
+        <!-- =========================================== -->
+        <!-- =========================================== -->
+        <Image x:Name="imagePrediction" Style="{StaticResource Photoframe}" Source="/Assets/Prediction/Prediction_Icon.png"/>
+
+
+
+        <!-- Sign -->
+        <!-- =========================================== -->
+        <!-- =========================================== -->
+        <Grid Grid.Row="1" Grid.Column="3" Grid.RowSpan="2">
+            <Grid.Background>
+                <ImageBrush ImageSource="/Assets/Other/Sign.png"/>
+            </Grid.Background>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.6*"/>
+                <RowDefinition Height="1.7*"/>
+                <RowDefinition Height="7.3*"/>
+                <RowDefinition Height="4*"/>
+            </Grid.RowDefinitions>
+            
+            <!-- Title -->
+            <TextBlock Text="PREDICTION" Style="{StaticResource Sign.Title}"/>
+            
+            <!-- Text to Speech Button -->
+            <Button x:Name="btnSpeak" Content="&#xE767;" Style="{StaticResource Prediction.Button.Text.To.Speech}" Click="btnSpeak_Click"/>
+
+            <!-- Content -->
+            <TextBlock x:Name="TextBlockPrediction" Style="{StaticResource Sign.Content}"/>
+        </Grid>
+
+        
+        
+        <!-- Button -->
+        <!-- =========================================== -->
+        <!-- =========================================== -->
+        <Button x:Name="ButtonPrediction" Content="PREDICTION" Style="{StaticResource Prediction.Button}" Click="btnPrediction_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="/Assets/Other/Page_Title.png"/>
+            </Button.Background>
+        </Button>
+
+        <!-- Button Blocker -->
+        <Grid Style="{StaticResource Prediction.Button.Blocker}" Margin="69" Height="100"/>
+        <Grid Style="{StaticResource Prediction.Button.Blocker}" Height="5"/>
+    </Grid>
+</Page>

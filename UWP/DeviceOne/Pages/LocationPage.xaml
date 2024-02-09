@@ -1,0 +1,183 @@
+﻿<Page
+    x:Class="DeviceOne.Pages.LocationPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Maps="using:Windows.UI.Xaml.Controls.Maps"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Width="1285" Height="671">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Assets/Other/Game_Background.png"/>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.4*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="0.1*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.1*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="0.1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="0.1*"/>
+        </Grid.ColumnDefinitions>
+        <!-- Page Title -->
+        <!-- =========================================== -->
+        <!-- =========================================== -->
+        <Grid Style="{StaticResource Title.Grid}" Width="280">
+            <Grid.Background>
+                <ImageBrush ImageSource="/Assets/Other/Page_Title.png"/>
+            </Grid.Background>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.7*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="0.1*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Text="LOCATION" Style="{StaticResource Title.Content}"/>
+        </Grid>
+
+
+
+        <!-- Map -->
+        <!-- =========================================== -->
+        <!-- =========================================== -->
+        <Grid Grid.Row="1" Grid.RowSpan="2" Grid.Column="1">
+            <Grid.Background>
+                <ImageBrush ImageSource="/Assets/Location/Map/Map.png" Stretch="Uniform"/>
+            </Grid.Background>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.05*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="0.279*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.259*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="0.26*"/>
+            </Grid.ColumnDefinitions>
+
+
+            <!-- Map Control -->
+            <!-- =========================================== -->
+            <Maps:MapControl x:Name="Map" Grid.Row="1" Grid.Column="1" MapServiceToken="{x:Bind MapToken, Mode=OneTime}" ZoomLevelChanged="Map_ZoomLevelChanged" MapTapped="Map_MapTapped" MapRightTapped="Map_MapRightTapped"/>
+
+
+            <!-- Icon Title Panel -->
+            <!-- =========================================== -->
+            <Grid x:Name="gIconTitlePanel" Style="{StaticResource Icon.Title.Panel}" Visibility="Collapsed">
+                <Grid Width="470" Height="220">
+                    <Grid.Background>
+                        <ImageBrush ImageSource="/Assets/Location/Map/Label_Panel_Background.png"/>
+                    </Grid.Background>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0.8*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <!-- Title -->
+                    <TextBlock Text="Icon Title" Style="{StaticResource Icon.Title.TextBlock}"/>
+
+                    <!-- TextBox -->
+                    <TextBox x:Name="tbIconTitle" PlaceholderText="Enter a Title..." Style="{StaticResource Icon.Title.TextBox}"/>
+
+                    <!-- Buttons Grid -->
+                    <!-- =========================================== -->
+                    <StackPanel Style="{StaticResource Location.Buttons.StackPanel}">
+                        <!-- Apply Button -->
+                        <Button x:Name="btnIconTitleApply" Content="Apply" Style="{StaticResource Location.Button}" Click="btnIconTitleApply_Click">
+                            <Button.Background>
+                                <ImageBrush ImageSource="/Assets/Other/Button.png"/>
+                            </Button.Background>
+                        </Button>
+
+                        <!-- Back Button -->
+                        <Button x:Name="btnIconTitleBack" Content="Back" Style="{StaticResource Location.Button}" Click="btnIconTitleBack_Click">
+                            <Button.Background>
+                                <ImageBrush ImageSource="/Assets/Other/Button.png"/>
+                            </Button.Background>
+                        </Button>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+        </Grid>
+
+
+
+        <!-- Settings -->
+        <!-- =========================================== -->
+        <!-- =========================================== -->
+        <Grid Grid.Column="3" Grid.RowSpan="3" Width="300" VerticalAlignment="Stretch">
+            <!-- Settings 3 -->
+            <Grid Height="140" Margin="0 320 0 0" Width="280">
+                <Grid.Background>
+                    <ImageBrush ImageSource="/Assets/Other/Page_Title.png"/>
+                </Grid.Background>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.75*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="0.1*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.25*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="0.25*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- CheckBox -->
+                <CheckBox Style="{StaticResource Location.Traffic.Flow.CheckBox}" x:Name="tglTrafficFlow" Content="Show Traffic Flow" Click="tglTrafficFlow_Click"/>
+            </Grid>
+
+            <!-- Settings 2 -->
+            <Grid Height="140" Margin="0 50 0 0" Width="280">
+                <Grid.Background>
+                    <ImageBrush ImageSource="/Assets/Other/Page_Title.png"/>
+                </Grid.Background>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.75*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="0.1*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.25*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="0.25*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Location ComboBox -->
+                <ComboBox x:Name="cbLocations" Style="{StaticResource Location.ComboBox}" ItemContainerStyle="{StaticResource Location.ComboBox.Item.Container.Style}" SelectedIndex="0" SelectionChanged="cbLocations_SelectionChanged"/>
+            </Grid>
+
+            <!-- Settings 1 -->
+            <Grid Height="310" VerticalAlignment="Top">
+                <Grid.Background>
+                    <ImageBrush ImageSource="/Assets/Location/Settings_Background.png"/>
+                </Grid.Background>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2.8*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="0.3*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.25*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="0.25*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Map Styles ComboBox -->
+                <ComboBox x:Name="cbStyles" Style="{StaticResource Location.ComboBox}" ItemContainerStyle="{StaticResource Location.ComboBox.Item.Container.Style}" SelectedIndex="0" SelectionChanged="cbStyles_SelectionChanged"/>
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>

@@ -1,0 +1,236 @@
+﻿<Page
+    x:Class="DeviceOne.Pages.DrinksPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:DeviceOne.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Model="using:DeviceOne.Models"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Width="1285" Height="671">
+    <Page.Resources>
+        <!-- Default Drinks ComboBoxItem -->
+        <Style TargetType="ListBoxItem">
+            <Setter Property="BackgroundSizing" Value="OuterBorderEdge"/>
+            <Setter Property="Foreground" Value="{ThemeResource ButtonForeground}"/>
+            <Setter Property="Width" Value="180"/>
+            <Setter Property="Margin" Value="0 11.5 0 11.5"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="19"/>
+            <Setter Property="FontFamily" Value="Bernard MT"/>
+            <Setter Property="FontWeight" Value="Normal"/>
+            <Setter Property="UseSystemFocusVisuals" Value="{StaticResource UseSystemFocusVisuals}"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="FocusVisualMargin" Value="-3"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ListBoxItem">
+                        <ContentPresenter x:Name="ContentPresenter" AutomationProperties.AccessibilityView="Raw" BackgroundSizing="{TemplateBinding BackgroundSizing}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" CornerRadius="{TemplateBinding CornerRadius}" ContentTransitions="{TemplateBinding ContentTransitions}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" Padding="{TemplateBinding Padding}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}">
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Normal">
+                                        <Storyboard>
+                                            <PointerUpThemeAnimation Storyboard.TargetName="ContentPresenter"/>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="PointerOver">
+                                        <Storyboard>
+                                            <PointerUpThemeAnimation Storyboard.TargetName="ContentPresenter"/>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Pressed">
+                                        <Storyboard>
+                                            <PointerDownThemeAnimation Storyboard.TargetName="ContentPresenter"/>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Disabled">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter" Storyboard.TargetProperty="Background">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource ButtonBackgroundDisabled}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter" Storyboard.TargetProperty="BorderBrush">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource ButtonBorderBrushDisabled}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter" Storyboard.TargetProperty="Foreground">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource ButtonForegroundDisabled}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <ContentPresenter.Background>
+                                <ImageBrush ImageSource="/Assets/Other/Button.png"/>
+                            </ContentPresenter.Background>
+                        </ContentPresenter>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Assets/Other/Game_Background.png"/>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.23*"/>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="0.5*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.45*"/>
+            <ColumnDefinition Width="0.05*"/>
+            <ColumnDefinition Width="0.7*"/>
+            <ColumnDefinition Width="0.3*"/>
+            <ColumnDefinition Width="0.05*"/>
+            <ColumnDefinition Width="0.3*"/>
+            <ColumnDefinition Width="0.7*"/>
+            <ColumnDefinition Width="0.05*"/>
+        </Grid.ColumnDefinitions>
+        <!-- Page Title -->
+        <!-- =========================================== -->
+        <!-- =========================================== -->
+        <Grid Style="{StaticResource Title.Grid}" Width="210" Grid.Column="1">
+            <Grid.Background>
+                <ImageBrush ImageSource="/Assets/Other/Page_Title.png"/>
+            </Grid.Background>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.7*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="0.1*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Text="DRINKS" Style="{StaticResource Title.Content}"/>
+        </Grid>
+
+
+
+        <!-- Drinks -->
+        <!-- =========================================== -->
+        <!-- =========================================== -->
+        <Grid Grid.RowSpan="3">
+            <Grid.Background>
+                <ImageBrush ImageSource="/Assets/Drinks/Drinks_Menu.png"/>
+            </Grid.Background>
+            <ListBox x:Name="DrinksListBox" Margin="0 180 12 0" Background="Transparent" ItemsSource="{x:Bind Drinks, Mode=OneWay}" SelectedIndex="0" SelectionChanged="lbDrinks_SelectionChanged" DoubleTapped="DrinksListBox_DoubleTapped">
+                <ListBox.ItemTemplate>
+                    <DataTemplate x:DataType="Model:DrinksModel">
+                        <ComboBoxItem Content="{x:Bind Name}" Tapped="Item_Tapped"/>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </Grid>
+
+
+
+        <!-- Drinks Title -->
+        <!-- =========================================== -->
+        <!-- =========================================== -->
+        <Grid Grid.Column="2" Height="100" VerticalAlignment="Top" HorizontalAlignment="Stretch">
+            <Grid.Background>
+                <ImageBrush ImageSource="/Assets/Other/Page_Title.png"/>
+            </Grid.Background>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.7*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="0.1*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBox x:Name="TextBoxName" Text="Drink Name" Style="{StaticResource Drinks.Name}"/>
+            <Grid Style="{StaticResource Drinks.Name.Blocker}"/>
+        </Grid>
+
+
+
+        <!-- Drink Stand -->
+        <!-- =========================================== -->
+        <!-- =========================================== -->
+        <Grid Grid.Row="1" Grid.RowSpan="2" Grid.Column="2">
+            <!-- Stand -->
+            <Image Source="/Assets/Drinks/Drink_Stand.png" Height="250" VerticalAlignment="Bottom"/>
+
+            <!-- Drink -->
+            <Image x:Name="ImageDrink" Height="250" Margin="0 0 0 150"/>
+        </Grid>
+
+
+
+        <!-- Details -->
+        <!-- =========================================== -->
+        <!-- =========================================== -->
+        <Grid Grid.Row="0" Grid.Column="6" Grid.RowSpan="3">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.55*"/>
+                <RowDefinition Height="1.2*"/>
+                <RowDefinition Height="0.2*"/>
+                <RowDefinition Height="0.55*"/>
+                <RowDefinition Height="1.2*"/>
+            </Grid.RowDefinitions>
+
+            <!-- Description -->
+            <Grid Grid.Row="0" Grid.RowSpan="2" Margin="4 90 0 0">
+                <Grid.Background>
+                    <ImageBrush ImageSource="/Assets/Other/Button.png"/>
+                </Grid.Background>
+                <TextBlock x:Name="TextBlockRecipe" TextWrapping="Wrap" Padding="65 28 65 0" FontFamily="Bernard MT" LineHeight="20"/>
+            </Grid>
+
+            <!-- Description Title -->
+            <Grid Style="{StaticResource Title.Grid}" HorizontalAlignment="Stretch" Width="340" Height="100">
+                <Grid.Background>
+                    <ImageBrush ImageSource="/Assets/Other/Page_Title.png"/>
+                </Grid.Background>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.7*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="0.1*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="4*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Text="DESCRIPTION" Style="{StaticResource Title.Content}"/>
+            </Grid>
+
+
+            <!-- Mix -->
+            <Grid Grid.Row="3" Grid.RowSpan="2" Margin="0 100 0 0">
+                <Grid.Background>
+                    <ImageBrush ImageSource="/Assets/Other/Button.png"/>
+                </Grid.Background>
+                <TextBlock x:Name="TextBlockMix" TextWrapping="Wrap" Padding="65 20 65 0" FontFamily="Bernard MT" LineHeight="20"/>
+            </Grid>
+
+            <!-- Mix Title -->
+            <Grid Grid.Row="3">
+                <Grid.Background>
+                    <ImageBrush ImageSource="/Assets/Other/Button.png"/>
+                </Grid.Background>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="0.1*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.25*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="0.25*"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Text="MIX" FontFamily="Bernard MT" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="40"/>
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>

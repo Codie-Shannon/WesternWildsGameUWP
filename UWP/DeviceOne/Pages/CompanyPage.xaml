@@ -1,0 +1,77 @@
+﻿<Page
+    x:Class="DeviceOne.Pages.CompanyPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:DeviceOne.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Width="1285" Height="671">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Assets/Other/Game_Background.png"/>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.4*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="0.1*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.15*"/>
+            <ColumnDefinition Width="0.9*"/>
+            <ColumnDefinition Width="0.7*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="0.15*"/>
+        </Grid.ColumnDefinitions>
+        <!-- Page Title -->
+        <!-- =========================================== -->
+        <!-- =========================================== -->
+        <Grid Style="{StaticResource Title.Grid}" Width="280">
+            <Grid.Background>
+                <ImageBrush ImageSource="/Assets/Other/Page_Title.png"/>
+            </Grid.Background>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.7*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="0.1*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Text="COMPANY" Style="{StaticResource Title.Content}"/>
+        </Grid>
+
+
+
+        <!-- Company Logo -->
+        <!-- =========================================== -->
+        <!-- =========================================== -->
+        <Image Style="{StaticResource Photoframe}" Source="/Assets/Company/Company_Logo.png"/>
+
+
+
+        <!-- Sign -->
+        <!-- =========================================== -->
+        <!-- =========================================== -->
+        <Grid Grid.Row="1" Grid.Column="3" Grid.RowSpan="2" IsHitTestVisible="False">
+            <Grid.Background>
+                <ImageBrush ImageSource="/Assets/Other/Sign.png"/>
+            </Grid.Background>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.6*"/>
+                <RowDefinition Height="1.7*"/>
+                <RowDefinition Height="7.3*"/>
+                <RowDefinition Height="4*"/>
+            </Grid.RowDefinitions>
+
+            <!-- Title -->
+            <TextBlock Text="COMPANY" Style="{StaticResource Sign.Title}"/>
+
+            <!-- Content -->
+            <TextBlock x:Name="TextBlockPrediction" Text="We believe Western Wilds plays an important part in Kiwi culture – we've been bringing families and friends together around great food to make lasting memories since 1973." Style="{StaticResource Sign.Content}"/>
+        </Grid>
+    </Grid>
+</Page>

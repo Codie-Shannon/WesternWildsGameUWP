@@ -1,0 +1,60 @@
+﻿<Page
+    x:Class="DeviceOne.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" SizeChanged="Page_SizeChanged" Loaded="Page_Loaded">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+
+
+        <!-- Navigation Bar -->
+        <!-- =========================================== -->
+        <!-- =========================================== -->
+        <StackPanel Style="{StaticResource Navigation.Bar}">
+            <StackPanel.Background>
+                <ImageBrush ImageSource="/Assets/Navigation/Menu_Background.png" Stretch="Fill"/>
+            </StackPanel.Background>
+            <!-- Home Button -->
+            <Button x:Name="btnHome" Content="HOME" Style="{StaticResource Navigation.Button}" Click="PageButton_Click"> <Button.Background> <ImageBrush ImageSource="/Assets/Other/Button.png"/> </Button.Background> </Button>
+
+            <!-- Dice Button -->
+            <Button x:Name="btnDice" Content="DICE" Style="{StaticResource Navigation.Button}" Click="PageButton_Click"> <Button.Background> <ImageBrush ImageSource="/Assets/Other/Button.png"/> </Button.Background> </Button>
+
+            <!-- Lotto Button -->
+            <Button x:Name="btnLotto" Content="LOTTO" Style="{StaticResource Navigation.Button}" Click="PageButton_Click"> <Button.Background> <ImageBrush ImageSource="/Assets/Other/Button.png"/> </Button.Background> </Button>
+            
+            <!-- Prediction Button -->
+            <Button x:Name="btnPrediction" Content="PREDICTION" Style="{StaticResource Navigation.Button}" Click="PageButton_Click"> <Button.Background> <ImageBrush ImageSource="/Assets/Other/Button.png"/> </Button.Background> </Button>
+            
+            <!-- Slot Button -->
+            <Button x:Name="btnSlot" Content="SLOT" Style="{StaticResource Navigation.Button}" Click="PageButton_Click"> <Button.Background> <ImageBrush ImageSource="/Assets/Other/Button.png"/> </Button.Background> </Button>
+
+            <!-- Drinks Button -->
+            <Button x:Name="btnDrinks" Content="DRINKS" Style="{StaticResource Navigation.Button}" Click="PageButton_Click"> <Button.Background> <ImageBrush ImageSource="/Assets/Other/Button.png"/> </Button.Background> </Button>
+
+            <!-- Company Button -->
+            <Button x:Name="btnCompany" Content="COMPANY" Style="{StaticResource Navigation.Button}" Click="PageButton_Click"> <Button.Background> <ImageBrush ImageSource="/Assets/Other/Button.png"/> </Button.Background> </Button>
+
+            <!-- Location Button -->
+            <Button x:Name="btnLocation" Content="LOCATION" Style="{StaticResource Navigation.Button}" Click="PageButton_Click"> <Button.Background> <ImageBrush ImageSource="/Assets/Other/Button.png"/> </Button.Background> </Button>
+        </StackPanel>
+        
+        
+        <!-- Text To Speech Media Element -->
+        <!-- =========================================== -->
+        <!-- =========================================== -->
+        <MediaElement x:Name="meSpeak" x:FieldModifier="public"/>
+
+
+        <!-- Page Frame -->
+        <!-- =========================================== -->
+        <!-- =========================================== -->
+        <Frame Name="MyFrame" Grid.Row="1" Navigated="MyFrame_Navigated"/>
+    </Grid>
+</Page>
