@@ -15,6 +15,7 @@ A UWP application where you can play dice, lotto, and slots or buy some drinks a
 * Mood Boards
 * Text to Speech using the Speech Synthesis Class
 * UWP
+* UWP Page Navigation
 * UWP Styles
 
 
