@@ -5,18 +5,35 @@ A UWP application where you can play dice, lotto, and slots or buy some drinks a
 
 # What I Learned
 * Annotated Diagrams
+* Arrays
+* Auto-Implemented Properties
 * Bing Maps API
+* C# Enumeration Types
 * C# Extensions
+* Dictionaries
+* Event Handlers
+* For Loops
+* Foreach Loops
 * Hierarchical Diagrams
+* IF Statements
 * Lists
 * Message Dialogs for Popup Windows
 * Mind Maps
 * Models
 * Mood Boards
+* Nested For Loops
+* Parameterised Methods and Constructors
+* Public and Private Variables
+* Random Number Generation
+* Simple UWP Navigation
+* System Threading
 * Text to Speech using the Speech Synthesis Class
 * UWP
+* UWP Assets and Resources
+* UWP Message Dialog
 * UWP Page Navigation
 * UWP Styles
+* UWP Views and Frames
 
 
 # Copyright
